@@ -12,7 +12,16 @@
       </li>
     <% end %>
   </ul>
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <h3>Add dose</h3>
+      <%= simple_form_for [ @cocktail, @dose ] do |f| %>
+        <%= f.input :description, placeholder: "3 cups" %>
+        <%= f.association :ingredient %>
+        <%= f.submit "Add", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
 
-  <%= link_to 'Add dose', new_cocktail_dose_path(@cocktail), class: "btn btn-success" %>
   <%= link_to 'Back', cocktails_path %>
 </div>

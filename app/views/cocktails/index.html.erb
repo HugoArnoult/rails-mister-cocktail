@@ -1,7 +1,9 @@
 <div class="container">
-  <h1>All Caocktails</h1>
+  <h1>All Cocktails</h1>
 
-  <%= link_to 'Create', new_cocktail_path %>
+  <%= link_to new_cocktail_path, class: "btn btn-success" do %>
+    <i class="fas fa-plus"></i> Create
+  <% end %>
 
   <% @cocktails.each do |cocktail| %>
     <p><%= link_to cocktail.name, cocktail_path(cocktail) %></p>
