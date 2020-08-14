@@ -1,0 +1,18 @@
+.primary-button {
+  padding: $spacing $spacing-2;
+  // background-color: $primary-color;
+  // color: $main-background;
+  color: $primary-color;
+  border-radius: $border-radius-default;
+  text-decoration: none;
+  font-family: $body-font;
+  text-transform: uppercase;
+  font-weight: $bold;
+  letter-spacing: 1px;
+
+  &:hover {
+    opacity: 0.8 !important;
+    // color: $main-background;
+    text-decoration: none !important;
+  }
+}

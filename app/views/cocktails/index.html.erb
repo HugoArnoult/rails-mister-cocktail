@@ -1,14 +1,24 @@
-<div class="container">
-  <h1>All Cocktails</h1>
+<div class="main-container">
+  <div class="left-container">
+    <div class="navbar-container">
+      <%= link_to root_path do %>
+        <%= image_tag "Logo.jpeg", alt: "Nikki Beach", id: "img-logo" %>
+      <% end %>
+      <%= link_to "Create", new_cocktail_path, class: "primary-button" %>
+    </div>
 
-  <%= link_to new_cocktail_path, class: "btn btn-success" do %>
-    <i class="fas fa-plus"></i> Create
-  <% end %>
+    <div class="content-container">
+      <div class="home-card">
+        <% @cocktails.each do |cocktail| %>
+          <% if cocktail.photo.attached? %>
+            <%= cl_image_tag cocktail.photo.key, height: 300, width: 400, crop: :fit %>
+          <% end %>
+          <h1><%= link_to cocktail.name, cocktail_path(cocktail) %></h1>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-  <% @cocktails.each do |cocktail| %>
-    <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
-    <% if cocktail.photo.attached? %>
-      <%= cl_image_tag cocktail.photo.key, height: 300, width: 400, crop: :fit %>
-    <% end %>
-  <% end %>
+  <div class="right-container">
+  </div>
 </div>

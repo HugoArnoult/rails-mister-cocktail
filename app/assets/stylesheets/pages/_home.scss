@@ -1,1 +1,26 @@
 // Specific CSS for your home-page
+.main-container {
+  display: flex;
+}
+
+.left-container {
+  flex-grow: 1;
+  display: flex;
+  background-color: $main-background;
+  height: 100vh;
+  flex-direction: column;
+  padding: $spacing * 4;
+
+  .content-container {
+    background-color: $main-background;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.right-container {
+  background-color: $elevation-background;
+  width: 400px;
+  height: 100vh;
+}
