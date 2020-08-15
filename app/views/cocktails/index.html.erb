@@ -9,15 +9,13 @@
     </div>
 
     <div class="content-container">
-        <% if @cocktails.last.photo.attached? %>
-          <%= cl_image_tag @cocktails.last.photo.key %>
-        <% end %>
+        <%= image_tag "cocktail_amaretto.png" %>
         <div class="home-content">
-          <h1><%= @cocktails.last.name %></h1>
+          <h1>Amaretto</h1>
           <p>
             Ce cocktail a été créé en Italie dans les années 1950 – comme le Old Fashioned - mais c'est vraiment 10 ans plus tard qu'il serait devenu à la mode, dans les bars américains.
           </p>
-          <%= link_to 'Know more', cocktail_path(@cocktails.first), class: "primary-button" %>
+          <%= link_to 'Know more', cocktail_path(@cocktails.find(14)), class: "primary-button" %>
         </div>
     </div>
   </div>
