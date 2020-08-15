@@ -24,7 +24,7 @@
     <% @cocktails.each do |cocktail| %>
       <%= link_to cocktail_path(cocktail) do %>
         <% if cocktail.photo.attached? %>
-          <%= cl_image_tag cocktail.photo.key, height: 320 %>
+          <%= cl_image_tag cocktail.photo.key, height: 300 %>
         <% end %>
         <p><%= cocktail.name %></p>
       <% end %>

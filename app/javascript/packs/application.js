@@ -11,6 +11,6 @@ require("channels")
 import 'bootstrap';
 import { initSelect2 } from '../components/initSelect2';
 
-document.addEventListener('turbolinks:load', () => {
-  initSelect2();
-});
+// document.addEventListener('turbolinks:load', () => {
+//   initSelect2();
+// });

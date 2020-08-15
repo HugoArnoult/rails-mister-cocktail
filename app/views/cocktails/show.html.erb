@@ -1,37 +1,66 @@
 <div class="container">
-
-  <div class="navbar-container">
-    <%= link_to root_path do %>
-      <%= image_tag "logo.jpg", alt: "Nikki Beach", id: "img-logo" %>
-    <% end %>
-  </div>
-
-  <h1><%= @cocktail.name %></h1>
-  <% if @cocktail.photo.attached? %>
-    <%= cl_image_tag @cocktail.photo.key, width: 338, heigth: 450 %>
-  <% end %>
-  <ul>
-    <% @cocktail.doses.each do |dose| %>
-      <li>
-        <%= dose.description %> - <%= dose.ingredient[:name] %>
-        <%= link_to dose_path(dose),
-        method: :delete,
-        data: { confirm: "Are you sure?" } do %>
-          <i class="fas fa-trash"></i>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
   <div class="row">
-    <div class="col-12 col-lg-6">
-      <h3>Add dose</h3>
-      <%= simple_form_for [ @cocktail, @dose ] do |f| %>
-        <%= f.input :description, placeholder: "3 cups" %>
-        <%= f.association :ingredient %>
-        <%= f.submit "Add", class: "btn btn-primary" %>
-      <% end %>
+    <div class="col-12">
+      <div class="navbar-container">
+        <%= link_to root_path do %>
+          <%= image_tag "logo.jpg", alt: "Nikki Beach", id: "img-logo" %>
+        <% end %>
+      </div>
     </div>
   </div>
 
-  <%= link_to 'Back', root_path %>
+  <div class="row">
+    <div class="col-12 col-sm-7 col-lg-5 d-flex align-items-center justify-content-center">
+      <% if @cocktail.photo.attached? %>
+        <%= cl_image_tag @cocktail.photo.key, width: 338, heigth: 450 %>
+      <% end %>
+    </div>
+    <div class="col-12 col-sm-5 col-lg-7 d-flex align-items-center">
+      <div class="container-right-text">
+        <h1><%= @cocktail.name %></h1>
+        <ul>
+          <% @cocktail.doses.each do |dose| %>
+            <li>
+              <%= dose.description %> - <%= dose.ingredient[:name] %>
+              <%= link_to dose_path(dose),
+              method: :delete,
+              data: { confirm: "Are you sure?" } do %>
+                <i class="fas fa-trash"></i>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+          New ingredient
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">New Ingredient</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <%= simple_form_for [ @cocktail, @dose ] do |f| %>
+                  <%= f.input :description, placeholder: "3 cups" %>
+                  <%= f.association :ingredient %>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <%= f.submit "Save", class: "btn btn-primary" %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <%= link_to 'Back', root_path, class: "back-link" %>
+      </div>
+    </div>
+  </div>
+
 </div>
