@@ -1,12 +1,15 @@
 <div class="container">
 
   <div class="navbar-container">
-      <%= link_to root_path do %>
-        <%= image_tag "logo.jpg", alt: "Nikki Beach", id: "img-logo" %>
-      <% end %>
-    </div>
+    <%= link_to root_path do %>
+      <%= image_tag "logo.jpg", alt: "Nikki Beach", id: "img-logo" %>
+    <% end %>
+  </div>
 
   <h1><%= @cocktail.name %></h1>
+  <% if @cocktail.photo.attached? %>
+    <%= cl_image_tag @cocktail.photo.key %>
+  <% end %>
   <ul>
     <% @cocktail.doses.each do |dose| %>
       <li>
