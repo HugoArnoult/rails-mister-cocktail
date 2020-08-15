@@ -22,11 +22,11 @@
 
   <div class="right-container">
     <% @cocktails.each do |cocktail| %>
-      <% if cocktail.photo.attached? %>
-        <%= link_to cocktail_path(cocktail) do %>
+      <%= link_to cocktail_path(cocktail) do %>
+        <% if cocktail.photo.attached? %>
           <%= cl_image_tag cocktail.photo.key, height: 300 %>
-          <p><%= cocktail.name %></p>
         <% end %>
+        <p><%= cocktail.name %></p>
       <% end %>
     <% end %>
   </div>
