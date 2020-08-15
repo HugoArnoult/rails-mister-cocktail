@@ -1,8 +1,8 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 // Define fonts for body and headers
-$body-font: 'Mulish', sans-serif;
-$headers-font: 'Mulish', sans-serif;
+$body-font: 'Poppins', sans-serif;
+$headers-font: 'Poppins', sans-serif;
 
 // FONT-SIZE
 $h1: 48px;
@@ -12,3 +12,17 @@ $body: 16px;
 $regular: 400;
 $semi-bold: 600;
 $bold: 700;
+
+h1 {
+  margin: 0px !important;
+  color: $primary-color !important;
+  font-weight: $semi-bold !important;
+  font-size: $h1 !important;
+}
+
+p {
+  margin: 0px;
+  font-size: $body;
+  color: $secondary-color;
+  line-height: 2em;
+}

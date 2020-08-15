@@ -9,7 +9,7 @@
   background-color: $main-background;
   height: 100vh;
   flex-direction: column;
-  padding: $spacing * 4;
+  padding: 32px;
 
   .content-container {
     background-color: $main-background;
@@ -23,4 +23,5 @@
   background-color: $elevation-background;
   width: 400px;
   height: 100vh;
+  text-align: center;
 }

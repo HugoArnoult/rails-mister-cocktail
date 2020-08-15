@@ -9,16 +9,25 @@
 
     <div class="content-container">
       <div class="home-card">
-        <% @cocktails.each do |cocktail| %>
-          <% if cocktail.photo.attached? %>
-            <%= cl_image_tag cocktail.photo.key, height: 300, width: 400, crop: :fit %>
-          <% end %>
-          <h1><%= link_to cocktail.name, cocktail_path(cocktail) %></h1>
-        <% end %>
+        <%= cl_image_tag @cocktails.first.photo.key %>
+        <div class="home-card-content">
+          <h1><%= @cocktails.first.name %></h1>
+          <p>
+            Ce breuvage de caractère, très populaire dans les années 60, est toujours à la mode. Le Old Fashioned aurait été inventé en 1884 par un officier retraité du nom de James E. Pepper.
+          </p>
+          <%= link_to 'Know more', cocktail_path(@cocktails.first), class: "primary-button" %>
+        </div>
       </div>
     </div>
   </div>
 
   <div class="right-container">
+    <% @cocktails.each do |cocktail| %>
+      <% if cocktail.photo.attached? %>
+        <%= link_to cocktail_path(cocktail) do %>
+          <%= cl_image_tag cocktail.photo.key %>
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
 </div>

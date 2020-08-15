@@ -1,18 +1,18 @@
 .primary-button {
-  padding: $spacing $spacing-2;
+  // padding: 8px 16px;
   // background-color: $primary-color;
   // color: $main-background;
+  // border-radius: 8px;
   color: $primary-color;
-  border-radius: $border-radius-default;
   text-decoration: none;
   font-family: $body-font;
   text-transform: uppercase;
-  font-weight: $bold;
+  font-weight: $semi-bold;
   letter-spacing: 1px;
 
   &:hover {
-    opacity: 0.8 !important;
     // color: $main-background;
+    opacity: 0.8 !important;
     text-decoration: none !important;
   }
 }
