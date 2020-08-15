@@ -6,22 +6,33 @@
 .left-container {
   flex-grow: 1;
   display: flex;
-  background-color: $main-background;
   height: 100vh;
   flex-direction: column;
   padding: 32px;
+  position: sticky;
+  top: 0;
 
   .content-container {
-    background-color: $main-background;
-    flex-grow: 1;
     display: flex;
+    flex-grow: 1;
     align-items: center;
+
+    .home-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 400px;
+      margin-left: 32px;
+    }
+    p {
+      margin-top: 32px;
+      margin-bottom: 24px;
+    }
   }
 }
 
 .right-container {
   background-color: $elevation-background;
   width: 400px;
-  height: 100vh;
   text-align: center;
 }
